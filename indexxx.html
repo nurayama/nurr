@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#e7e7e5" />
+  <meta name="description" content="Hari spesial untuk merayakan tawa, harapan, dan semua hal baik yang akan datang." />
+  <title>Hooray! — Hari Spesialmu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light;
+      --cream: #e7e7e5;
+      --paper: #f8f8f6;
+      --ink: #171717;
+      --muted: #777775;
+      --pink: #454545;
+      --pink-dark: #242424;
+      --yellow: #b8b8b5;
+      --lilac: #d0d0cd;
+      --display: "Fraunces", Georgia, serif;
+      --body: "DM Sans", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: clamp(12px, 3vw, 42px);
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--body);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site {
+      width: min(100%, 1440px);
+      margin: 0 auto;
+      overflow: hidden;
+      border: 1px solid rgb(23 23 23 / 9%);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: 0 24px 80px rgb(0 0 0 / 8%);
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
+      min-height: 82px;
+      padding: 0 clamp(22px, 5vw, 72px);
+      background: var(--paper);
+    }
+
+    .wordmark {
+      width: fit-content;
+      font-family: var(--display);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -.07em;
+    }
+
+    .wordmark span {
+      color: var(--pink-dark);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(20px, 3.5vw, 48px);
+    }
+
+    .nav a,
+    .eyebrow,
+    .hero-note,
+    .section-kicker,
+    .moment-number,
+    .footer-line {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .nav a {
+      position: relative;
+      padding: 8px 0;
+      color: #595957;
+    }
+
+    .nav a::after {
+      position: absolute;
+      right: 0;
+      bottom: 3px;
+      left: 0;
+      height: 1px;
+      border-radius: 0;
+      background: var(--pink);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .2s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .top-cta {
+      justify-self: end;
+      padding: 12px 19px;
+      border-radius: 2px;
+      background: var(--ink);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .top-cta:hover {
+      transform: translateY(-2px);
+      background: #555;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 650px;
+      grid-template-columns: 1fr .86fr;
+      align-items: center;
+      gap: clamp(24px, 5vw, 74px);
+      overflow: hidden;
+      padding: clamp(42px, 7vw, 96px) clamp(26px, 7vw, 100px);
+      background:
+        linear-gradient(135deg, rgb(255 255 255 / 45%), transparent 60%),
+        var(--cream);
+    }
+
+    .balloons {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 42px;
+      height: 56px;
+      border: 1px solid rgb(23 23 23 / 25%);
+      border-radius: 50% 50% 47% 47%;
+      background: linear-gradient(135deg, #555, #090909 72%);
+      box-shadow: inset 7px 5px 10px rgb(255 255 255 / 28%), inset -7px -7px 12px rgb(0 0 0 / 35%), 0 7px 15px rgb(0 0 0 / 12%);
+      opacity: .82;
+      animation: balloon-rise 19s linear infinite;
+      will-change: transform;
+    }
+
+    .balloon--white {
+      border-color: #aaa;
+      background: linear-gradient(135deg, #fff, #e2e2df 75%);
+      box-shadow: inset 7px 5px 11px rgb(255 255 255 / 90%), inset -7px -7px 12px rgb(0 0 0 / 11%), 0 7px 15px rgb(0 0 0 / 9%);
+    }
+
+    .balloon--silver {
+      background: linear-gradient(135deg, #ddd, #777 75%);
+      box-shadow: inset 7px 5px 10px rgb(255 255 255 / 65%), inset -7px -7px 12px rgb(0 0 0 / 20%), 0 7px 15px rgb(0 0 0 / 11%);
+    }
+
+    .balloon::before {
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-top: 7px solid #292929;
+      border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+      content: "";
+      transform: translateX(-50%);
+    }
+
+    .balloon i {
+      display: none;
+    }
+
+    .balloon::after {
+      position: absolute;
+      top: calc(100% + 3px);
+      left: 50%;
+      width: 1px;
+      height: 58px;
+      background: rgb(23 23 23 / 34%);
+      content: "";
+      transform: translateX(-50%);
+    }
+
+    .balloon:nth-child(1) {
+      left: 4%;
+      animation-delay: -7s;
+    }
+
+    .balloon:nth-child(2) {
+      left: 13%;
+      width: 36px;
+      height: 48px;
+      animation-duration: 18s;
+      animation-delay: -13s;
+    }
+
+    .balloon:nth-child(3) {
+      left: 23%;
+      width: 50px;
+      height: 67px;
+      animation-duration: 23s;
+      animation-delay: -17s;
+    }
+
+    .balloon:nth-child(4) {
+      left: 34%;
+      width: 34px;
+      height: 46px;
+      animation-duration: 17s;
+      animation-delay: -5s;
+    }
+
+    .balloon:nth-child(5) {
+      left: 48%;
+      width: 46px;
+      height: 62px;
+      animation-duration: 20s;
+      animation-delay: -11s;
+    }
+
+    .balloon:nth-child(6) {
+      left: 68%;
+      width: 35px;
+      height: 48px;
+      animation-duration: 16s;
+      animation-delay: -2s;
+    }
+
+    .balloon:nth-child(7) {
+      left: 83%;
+      width: 52px;
+      height: 69px;
+      animation-duration: 24s;
+      animation-delay: -18s;
+    }
+
+    .balloon:nth-child(8) {
+      left: 95%;
+      width: 32px;
+      height: 44px;
+      animation-duration: 18s;
+      animation-delay: -9s;
+    }
+
+    .balloon-pair {
+      position: absolute;
+      bottom: -180px;
+      width: 108px;
+      height: 205px;
+      animation: balloon-rise 21s linear infinite;
+      will-change: transform;
+    }
+
+    .hero-visual .balloon-pair--photo {
+      top: 18%;
+      bottom: auto;
+      left: -28px;
+      animation-duration: 22s;
+      animation-delay: -8s;
+    }
+
+    .balloon-pair:nth-of-type(1) {
+      left: 31%;
+      animation-delay: -10s;
+    }
+
+    .balloon-pair:nth-of-type(2) {
+      left: 82%;
+      animation-duration: 25s;
+      animation-delay: -20s;
+    }
+
+    .balloon-pair .balloon {
+      top: 0;
+      bottom: auto;
+      width: 42px;
+      height: 57px;
+      animation: none;
+      opacity: .9;
+    }
+
+    .balloon-pair .balloon:first-child {
+      left: 7px;
+    }
+
+    .balloon-pair .balloon:nth-child(2) {
+      top: 15px;
+      left: 55px;
+      width: 39px;
+      height: 53px;
+    }
+
+    .balloon-pair .balloon::after {
+      height: 112px;
+      background: rgb(23 23 23 / 50%);
+    }
+
+    .gift-flight {
+      position: absolute;
+      z-index: 3;
+      bottom: -300px;
+      left: 49%;
+      width: 178px;
+      height: 288px;
+      animation: gift-flight-rise 26s linear infinite;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .gift-balloons .balloon {
+      top: 0;
+      bottom: auto;
+      width: 41px;
+      height: 55px;
+      animation: none;
+      opacity: .96;
+    }
+
+    .gift-balloons .balloon:nth-child(1) {
+      left: 20px;
+    }
+
+    .gift-balloons .balloon:nth-child(2) {
+      top: 13px;
+      left: 68px;
+      width: 37px;
+      height: 50px;
+    }
+
+    .gift-balloons .balloon:nth-child(3) {
+      top: -5px;
+      left: 113px;
+      width: 43px;
+      height: 58px;
+    }
+
+    .gift-balloons .balloon::after {
+      height: 110px;
+      background: rgb(23 23 23 / 60%);
+    }
+
+    .gift-balloons .balloon:nth-child(2)::after {
+      height: 102px;
+    }
+
+    .gift-balloons .balloon:nth-child(3)::after {
+      height: 105px;
+    }
+
+    .gift-box {
+      position: absolute;
+      right: 19px;
+      bottom: 7px;
+      left: 19px;
+      display: grid;
+      min-height: 104px;
+      align-content: center;
+      justify-items: center;
+      border: 2px solid #171717;
+      background: linear-gradient(135deg, #fff, #d8d8d5);
+      box-shadow: 7px 9px 0 rgb(0 0 0 / 15%);
+      color: #171717;
+      text-align: center;
+      transform: rotate(-3deg);
+    }
+
+    .gift-box::before {
+      position: absolute;
+      top: -10px;
+      right: -2px;
+      left: -2px;
+      height: 15px;
+      border: 2px solid #171717;
+      background: #555;
+      content: "";
+    }
+
+    .gift-box span {
+      margin-top: 5px;
+      font-family: var(--body);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .gift-box strong {
+      margin-top: 2px;
+      font-family: var(--display);
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -.04em;
+    }
+
+    @keyframes gift-flight-rise {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(-3deg);
+      }
+
+      50% {
+        transform: translate3d(15px, -65vh, 0) rotate(3deg);
+      }
+
+      100% {
+        transform: translate3d(-12px, -130vh, 0) rotate(-2deg);
+      }
+    }
+
+    @keyframes balloon-rise {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(-5deg);
+      }
+
+      50% {
+        transform: translate3d(22px, -60vh, 0) rotate(6deg);
+      }
+
+      100% {
+        transform: translate3d(-12px, -125vh, 0) rotate(-4deg);
+      }
+    }
+
+    @keyframes balloon-rise-mobile {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(-5deg);
+      }
+
+      50% {
+        transform: translate3d(5px, -60vh, 0) rotate(6deg);
+      }
+
+      100% {
+        transform: translate3d(-3px, -125vh, 0) rotate(-4deg);
+      }
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      padding: 15px 0;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--pink-dark);
+    }
+
+    .eyebrow::before,
+    .section-kicker::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--yellow);
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 650px;
+      margin: 23px 0 22px;
+      font-family: var(--display);
+      font-size: clamp(72px, 10.3vw, 142px);
+      font-weight: 600;
+      letter-spacing: -.085em;
+      line-height: .85;
+    }
+
+    h1 span {
+      color: var(--pink);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .hero-copy > p {
+      max-width: 420px;
+      margin-bottom: 29px;
+      color: var(--muted);
+      font-size: clamp(14px, 1.3vw, 17px);
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 17px;
+    }
+
+    .primary-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      padding: 15px 21px;
+      border-radius: 2px;
+      background: var(--pink);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .primary-cta:hover {
+      transform: translateY(-2px);
+      background: var(--pink-dark);
+    }
+
+    .primary-cta span {
+      font-size: 17px;
+      line-height: .7;
+    }
+
+    .hero-note {
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: .08em;
+      text-transform: none;
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      min-height: 465px;
+      isolation: isolate;
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-visual::before {
+      top: -24px;
+      right: -24px;
+      width: 112px;
+      height: 112px;
+      background: var(--yellow);
+    }
+
+    .hero-visual::after {
+      bottom: -22px;
+      left: -25px;
+      width: 91px;
+      height: 91px;
+      background: var(--lilac);
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 16px 12px 10px 0;
+      overflow: hidden;
+      border: 1px solid rgb(23 23 23 / 10%);
+      border-radius: 46% 46% 3px 3px;
+      background: var(--cream);
+      box-shadow: 0 25px 55px rgb(0 0 0 / 14%);
+    }
+
+    .hero-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      filter: grayscale(1) contrast(1.04);
+    }
+
+    .photo-label {
+      position: absolute;
+      right: -9px;
+      bottom: 38px;
+      display: grid;
+      width: 118px;
+      height: 118px;
+      padding: 14px;
+      place-content: center;
+      border: 1px solid rgb(255 255 255 / 80%);
+      border-radius: 50%;
+      background: #262626;
+      color: white;
+      text-align: center;
+      transform: rotate(9deg);
+    }
+
+    .photo-label strong {
+      font-family: var(--display);
+      font-size: 26px;
+      font-weight: 600;
+      line-height: .95;
+    }
+
+    .photo-label span {
+      margin-top: 7px;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .sparkle {
+      position: absolute;
+      color: #555;
+      font-family: var(--display);
+      line-height: 1;
+    }
+
+    .sparkle-one {
+      top: 48px;
+      left: -18px;
+      font-size: 38px;
+    }
+
+    .sparkle-two {
+      right: 4px;
+      bottom: 24px;
+      color: #777;
+      font-size: 31px;
+    }
+
+    .celebration {
+      padding: clamp(56px, 8vw, 105px) clamp(25px, 7vw, 100px) clamp(65px, 8vw, 105px);
+      background: var(--paper);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2,
+    .wish-copy h2 {
+      max-width: 600px;
+      margin: 15px 0 0;
+      font-family: var(--display);
+      font-size: clamp(39px, 5.4vw, 72px);
+      font-weight: 600;
+      letter-spacing: -.065em;
+      line-height: .98;
+    }
+
+    .section-heading > p {
+      max-width: 250px;
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .moments {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .moment {
+      min-height: 235px;
+      padding: 24px;
+      border: 1px solid rgb(23 23 23 / 10%);
+      border-radius: 3px;
+    }
+
+    .moment--photo {
+      position: relative;
+      display: grid;
+      min-height: 270px;
+      grid-template-columns: minmax(0, 1fr) minmax(100px, .62fr);
+      grid-template-rows: auto 1fr;
+      column-gap: 12px;
+      overflow: hidden;
+      isolation: isolate;
+      background: #e5e5e2;
+    }
+
+    .moment--photo::before {
+      position: absolute;
+      z-index: -1;
+      inset: -130px 0;
+      background:
+        linear-gradient(90deg, rgb(229 229 226 / 92%) 0%, rgb(229 229 226 / 82%) 48%, rgb(229 229 226 / 16%) 100%),
+        url("berdua with u.jpg") center 45% / cover;
+      content: "";
+      transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.08);
+      will-change: transform;
+    }
+
+    .moment:nth-child(1).moment--photo::before {
+      background:
+        linear-gradient(90deg, rgb(237 237 235 / 92%) 0%, rgb(237 237 235 / 82%) 48%, rgb(237 237 235 / 16%) 100%),
+        url("ummaya 4.jpg") center / cover;
+    }
+
+    .moment:nth-child(3).moment--photo::before {
+      background:
+        linear-gradient(90deg, rgb(242 242 240 / 92%) 0%, rgb(242 242 240 / 82%) 48%, rgb(242 242 240 / 16%) 100%),
+        url("ummaya 2.jpg") center / cover;
+    }
+
+    .moment:nth-child(1) {
+      background: #ededeb;
+    }
+
+    .moment:nth-child(2) {
+      background: #e5e5e2;
+    }
+
+    .moment:nth-child(3) {
+      background: #f2f2f0;
+    }
+
+    .moment-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .moment--photo .moment-top {
+      grid-column: 1 / -1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .moment-copy {
+      position: relative;
+      z-index: 1;
+      align-self: center;
+    }
+
+    .moment-photo {
+      display: block;
+      width: 100%;
+      height: 210px;
+      grid-column: 2;
+      grid-row: 2;
+      align-self: center;
+      object-fit: contain;
+      filter: grayscale(1) contrast(1.04);
+    }
+
+    .moment-number {
+      color: #777;
+      font-size: 9px;
+    }
+
+    .moment-icon {
+      display: grid;
+      width: 45px;
+      height: 45px;
+      place-items: center;
+      border: 1px solid rgb(23 23 23 / 18%);
+      border-radius: 50%;
+      font-size: 21px;
+      filter: grayscale(1);
+    }
+
+    .moment h3 {
+      margin-bottom: 8px;
+      font-family: var(--display);
+      font-size: 29px;
+      font-weight: 600;
+      letter-spacing: -.04em;
+    }
+
+    .moment p {
+      max-width: 290px;
+      margin-bottom: 0;
+      color: #696967;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .wish {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+      overflow: hidden;
+      padding: clamp(34px, 6vw, 72px) clamp(28px, 7vw, 94px);
+      background: #1c1c1c;
+      color: #f8f8f6;
+    }
+
+    .wish::after {
+      position: absolute;
+      top: -116px;
+      right: 5%;
+      width: 270px;
+      height: 270px;
+      border: 1px solid rgb(255 255 255 / 13%);
+      border-radius: 50%;
+      box-shadow: 0 0 0 30px rgb(255 255 255 / 3%), 0 0 0 60px rgb(255 255 255 / 3%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .wish .section-kicker {
+      color: #c5c5c1;
+    }
+
+    .wish-copy h2 {
+      max-width: 710px;
+      margin-bottom: 12px;
+      color: #f8f8f6;
+    }
+
+    .wish-copy p {
+      max-width: 470px;
+      margin-bottom: 0;
+      color: rgb(248 248 246 / 68%);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .wish-mark {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      width: clamp(96px, 13vw, 160px);
+      aspect-ratio: 1;
+      align-content: center;
+      justify-items: center;
+      gap: 7px;
+      padding: 12px;
+      border-radius: 50%;
+      border: 1px solid rgb(255 255 255 / 55%);
+      background: #303030;
+      color: #f8f8f6;
+      transition: background .2s ease, transform .2s ease;
+      animation: invitation-pulse 2.2s ease-in-out infinite;
+    }
+
+    .wish-mark:hover,
+    .wish-mark:focus-visible {
+      background: #454545;
+      transform: translateY(-4px);
+    }
+
+    .wish-mark svg {
+      width: 38%;
+      height: 38%;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.5;
+    }
+
+    .wish-mark span {
+      font-size: clamp(9px, 1vw, 12px);
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    @keyframes invitation-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgb(255 255 255 / 0%); }
+      50% { box-shadow: 0 0 0 9px rgb(255 255 255 / 10%); }
+    }
+
+    .footer-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 21px clamp(24px, 5vw, 72px);
+      border-top: 1px solid rgb(255 255 255 / 9%);
+      background: #171717;
+      color: rgb(248 248 246 / 60%);
+      font-size: 8px;
+      letter-spacing: .1em;
+    }
+
+    .footer-line a {
+      color: #f8f8f6;
+    }
+
+    :focus-visible {
+      outline: 2px solid #555;
+      outline-offset: 4px;
+    }
+
+    .birthday-clown {
+      position: fixed;
+      z-index: 20;
+      top: 42%;
+      display: flex;
+      width: 132px;
+      height: 112px;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    .birthday-clown--left {
+      left: 10px;
+      transform: translateX(-155px);
+    }
+
+    .birthday-clown--right {
+      right: 10px;
+      transform: translateX(155px) scaleX(-1);
+    }
+
+    .birthday-clown.is-active {
+      visibility: visible;
+    }
+
+    .birthday-clown--left.is-active {
+      animation: clown-wave-left 1.8s ease-in-out both;
+    }
+
+    .birthday-clown--right.is-active {
+      animation: clown-wave-right 1.8s ease-in-out both;
+    }
+
+    .clown-face {
+      position: relative;
+      z-index: 1;
+      font-size: 76px;
+      line-height: 1;
+      filter: drop-shadow(0 5px 4px rgb(0 0 0 / 16%));
+    }
+
+    .clown-horn {
+      position: absolute;
+      top: 41px;
+      left: 69px;
+      display: inline-block;
+      font-size: 38px;
+      line-height: 1;
+      transform-origin: 8px 50%;
+    }
+
+    .birthday-clown.is-active .clown-horn {
+      animation: horn-blow .52s ease-in-out .28s 2;
+    }
+
+    .clown-confetti {
+      position: absolute;
+      inset: 0;
+      overflow: visible;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      top: 53px;
+      left: 102px;
+      width: 8px;
+      height: 13px;
+      border-radius: 2px;
+      background: var(--confetti-color);
+      opacity: 0;
+      transform: translate(0, 0) rotate(0) scale(.2);
+    }
+
+    .birthday-clown.is-active .confetti-piece {
+      animation: confetti-burst .9s cubic-bezier(.15, .7, .3, 1) .95s both;
+    }
+
+    .confetti-piece:nth-child(1) {
+      --confetti-color: #df6b54;
+      --confetti-x: 47px;
+      --confetti-y: -38px;
+      --confetti-turn: 165deg;
+    }
+
+    .confetti-piece:nth-child(2) {
+      --confetti-color: #dfb64e;
+      --confetti-x: 57px;
+      --confetti-y: 3px;
+      --confetti-turn: 240deg;
+    }
+
+    .confetti-piece:nth-child(3) {
+      --confetti-color: #718c82;
+      --confetti-x: 42px;
+      --confetti-y: 43px;
+      --confetti-turn: 300deg;
+    }
+
+    .confetti-piece:nth-child(4) {
+      --confetti-color: #8a78a5;
+      --confetti-x: 69px;
+      --confetti-y: -23px;
+      --confetti-turn: 195deg;
+      width: 6px;
+      height: 10px;
+    }
+
+    .confetti-piece:nth-child(5) {
+      --confetti-color: #df6b54;
+      --confetti-x: 68px;
+      --confetti-y: 29px;
+      --confetti-turn: 270deg;
+      width: 6px;
+      height: 10px;
+    }
+
+    @keyframes clown-wave-left {
+      0% { opacity: 0; transform: translateX(-155px) rotate(-8deg); }
+      18%, 68% { opacity: 1; transform: translateX(0) rotate(0); }
+      100% { opacity: 0; transform: translateX(-155px) rotate(-8deg); }
+    }
+
+    @keyframes clown-wave-right {
+      0% { opacity: 0; transform: translateX(155px) scaleX(-1) rotate(-8deg); }
+      18%, 68% { opacity: 1; transform: translateX(0) scaleX(-1) rotate(0); }
+      100% { opacity: 0; transform: translateX(155px) scaleX(-1) rotate(-8deg); }
+    }
+
+    @keyframes horn-blow {
+      0%, 100% { transform: rotate(0) scale(1); }
+      45% { transform: rotate(-12deg) scale(1.14); }
+    }
+
+    @keyframes confetti-burst {
+      0% { opacity: 0; transform: translate(0, 0) rotate(0) scale(.2); }
+      12% { opacity: 1; }
+      100% { opacity: 0; transform: translate(var(--confetti-x), var(--confetti-y)) rotate(var(--confetti-turn)) scale(1); }
+    }
+
+    @media (max-width: 800px) {
+      .topbar {
+        grid-template-columns: 1fr auto;
+        min-height: 72px;
+      }
+
+      .nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: space-between;
+        padding: 0 0 13px;
+      }
+
+      .top-cta {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr .82fr;
+        gap: 23px;
+        padding-top: 68px;
+        padding-bottom: 68px;
+      }
+
+      h1 {
+        font-size: clamp(64px, 12vw, 100px);
+      }
+
+      .hero-visual {
+        min-height: 380px;
+      }
+
+      .photo-label {
+        right: -14px;
+        width: 99px;
+        height: 99px;
+      }
+
+      .photo-label strong {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 9px;
+      }
+
+      .site {
+        border-radius: 15px;
+      }
+
+      .topbar {
+        gap: 14px;
+        padding: 0 19px;
+      }
+
+      .wordmark {
+        font-size: 22px;
+      }
+
+      .nav {
+        gap: 12px;
+      }
+
+      .nav a {
+        font-size: 9px;
+      }
+
+      .top-cta {
+        padding: 10px 14px;
+        font-size: 10px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 54px 25px 55px;
+      }
+
+      .hero-copy {
+        padding: 0;
+      }
+
+      h1 {
+        max-width: 450px;
+        margin-top: 18px;
+        font-size: clamp(72px, 18vw, 112px);
+      }
+
+      .hero-copy > p {
+        max-width: 380px;
+        font-size: 14px;
+      }
+
+      .hero-visual {
+        width: min(100%, 400px);
+        min-height: 360px;
+        margin: 0 auto;
+      }
+
+      .hero-visual .balloon-pair--photo {
+        top: 13%;
+        left: -13px;
+      }
+
+      .balloons > .balloon {
+        width: 28px;
+        height: 38px;
+        opacity: .24;
+        animation-name: balloon-rise-mobile;
+      }
+
+      .balloons > .balloon:nth-child(1) {
+        left: -22px;
+      }
+
+      .balloons > .balloon:nth-child(2) {
+        left: -7px;
+      }
+
+      .balloons > .balloon:nth-child(3) {
+        right: -7px;
+        left: auto;
+      }
+
+      .balloons > .balloon:nth-child(4) {
+        right: -22px;
+        left: auto;
+      }
+
+      .balloons > .balloon:nth-child(n + 5),
+      .balloons > .balloon-pair {
+        display: none;
+      }
+
+      .gift-flight {
+        left: calc(50% - 89px);
+      }
+
+      .hero-photo {
+        inset: 13px 10px 8px 0;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 17px;
+        margin-bottom: 27px;
+      }
+
+      .section-heading h2,
+      .wish-copy h2 {
+        font-size: clamp(42px, 11vw, 60px);
+      }
+
+      .section-heading > p {
+        max-width: 330px;
+      }
+
+      .celebration {
+        padding: 58px 23px 65px;
+      }
+
+      .moments {
+        grid-template-columns: 1fr;
+        gap: 11px;
+      }
+
+      .moment {
+        min-height: 190px;
+      }
+
+      .moment--photo {
+        min-height: 250px;
+      }
+
+      .moment-top {
+        margin-bottom: 21px;
+      }
+
+      .wish {
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        padding: 45px 23px;
+      }
+
+      .wish-mark {
+        width: 75px;
+        gap: 4px;
+        padding: 7px;
+      }
+
+      .wish-mark span {
+        font-size: 7px;
+      }
+
+      .wish-copy p {
+        font-size: 12px;
+      }
+
+      .footer-line {
+        flex-wrap: wrap;
+        padding: 18px 22px;
+        font-size: 7px;
+      }
+
+      .birthday-clown {
+        top: 40%;
+        width: 96px;
+        height: 88px;
+      }
+
+      .birthday-clown--left {
+        left: 2px;
+      }
+
+      .birthday-clown--right {
+        right: 2px;
+      }
+
+      .clown-face {
+        font-size: 58px;
+      }
+
+      .clown-horn {
+        top: 33px;
+        left: 52px;
+        font-size: 29px;
+      }
+
+      .confetti-piece {
+        top: 43px;
+        left: 76px;
+        width: 6px;
+        height: 10px;
+      }
+    }
+
+    @media (max-width: 370px) {
+      .hero {
+        padding-right: 19px;
+        padding-left: 19px;
+      }
+
+      .hero-note {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 310px;
+      }
+
+      .wish {
+        grid-template-columns: 1fr;
+      }
+
+      .wish-mark {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        opacity: .8;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+      .balloon {
+        animation: none;
+        top: 14%;
+        bottom: auto;
+        opacity: .4;
+        will-change: auto;
+      }
+
+      .balloon-pair {
+        top: 18%;
+        bottom: auto;
+        animation: none;
+        opacity: .5;
+        will-change: auto;
+      }
+
+      .hero-visual .balloon-pair--photo {
+        top: 18%;
+      }
+
+      .gift-flight {
+        bottom: 8px;
+        animation: none;
+        transform: none;
+        will-change: auto;
+      }
+
+      .moment--photo::before {
+        transform: none;
+        will-change: auto;
+      }
+
+      .birthday-clown {
+        display: none;
+      }
+
+      .wish-mark {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="site">
+    <header class="topbar">
+      <a class="wordmark" href="#top" aria-label="Hooray, kembali ke atas">HAPPY BIRTHDAY UMMAYA BERLIAN ASSYIFFA<span></span></a>
+      <nav class="nav" aria-label="Navigasi utama">
+        <a href="#perayaan">Perayaan</a>
+        <a href="#momen">Momen</a>
+        <a href="#harapan">Harapan</a>
+      </nav>
+      <a class="top-cta" href="#perayaan">Yuk, rayakan <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="balloons" aria-hidden="true">
+        <span class="balloon balloon--black"></span>
+        <span class="balloon balloon--white"></span>
+        <span class="balloon balloon--silver"></span>
+        <span class="balloon balloon--black"></span>
+        <span class="balloon balloon--white"></span>
+        <span class="balloon balloon--black"></span>
+        <span class="balloon balloon--silver"></span>
+        <span class="balloon balloon--white"></span>
+        <div class="balloon-pair">
+        <span class="balloon balloon--black"></span>
+        <span class="balloon balloon--white"></span>
+        </div>
+        <div class="balloon-pair">
+        <span class="balloon balloon--white"></span>
+        <span class="balloon balloon--black"></span>
+        </div>
+      </div>
+      <div class="hero-copy">
+        <div class="eyebrow">Satu hari yang istimewa</div>
+        <h1 id="hero-title">Hari ini<br />tentang <span>kamu!</span></h1>
+        <p>Tambah satu lilin, satu cerita, dan banyak alasan untuk tersenyum. Hari ini waktunya merayakan semua hal baik tentang dirimu.</p>
+        <div class="hero-actions">
+          <a class="primary-cta" href="#perayaan">Lihat keseruannya <span aria-hidden="true">↓</span></a>
+          <span class="hero-note">Kue, tawa, dan harapan baru</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Suasana perayaan ulang tahun">
+        <span class="sparkle sparkle-one" aria-hidden="true"></span>
+        <div class="hero-photo">
+          <img src="ummaya foto.jpg" alt="Foto Ummaya" fetchpriority="high" />
+        </div>
+        <div class="balloon-pair balloon-pair--photo" aria-hidden="true">
+          <span class="balloon balloon--black"></span>
+          <span class="balloon balloon--white"></span>
+        </div>
+        <div class="gift-flight" aria-hidden="true">
+          <div class="gift-balloons">
+            <span class="balloon balloon--black"></span>
+            <span class="balloon balloon--white"></span>
+            <span class="balloon balloon--black"></span>
+          </div>
+          <div class="gift-box">
+            <span>Happy Birthday</span>
+            <strong>Ummaya</strong>
+          </div>
+        </div>
+        <div class="photo-label" aria-label="Hari spesialmu">
+          <strong>Make<br />a wish</strong>
+          <span>Hari spesialmu</span>
+        </div>
+        <span class="sparkle sparkle-two" aria-hidden="true">✦</span>
+      </div>
+    </section>
+
+    <section class="celebration" id="perayaan" aria-labelledby="celebration-title">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Alasan untuk berpesta</div>
+          <h2 id="celebration-title">Hal-hal kecil yang bikin hari ini besar.</h2>
+        </div>
+        <p>Tak perlu rencana yang rumit. Cukup kumpulkan hal-hal yang paling kamu suka.</p>
+      </div>
+
+      <div class="moments" id="momen">
+        <article class="moment moment--photo">
+          <div class="moment-top">
+            <span class="moment-number">Momen 01</span>
+            <span class="moment-icon" aria-hidden="true">🎂</span>
+          </div>
+          <div class="moment-copy">
+            <h3>Make a Wish!</h3>
+            <p>Jangan lupa doa yang banyak sebelum tiup lilinnya, ya!.</p>
+          </div>
+        <img class="moment-photo" src="ummaya 4.jpg" alt="Kolase foto Ummaya bersama keluarga dan teman" loading="lazy" />
+        </article>
+        <article class="moment moment--photo">
+          <div class="moment-top">
+            <span class="moment-number">Momen 02</span>
+            <span class="moment-icon" aria-hidden="true">🎈</span>
+          </div>
+          <div class="moment-copy">
+            <h3>Moment With Them</h3>
+            <p>Ngerayain hari spesial emang paling pas bareng orang-orang tersayang..</p>
+          </div>
+          <img class="moment-photo" src="berdua with u.jpg" alt="Kolase foto Ummaya bersama keluarga dan teman" loading="lazy" />
+        </article>
+        <article class="moment moment--photo">
+          <div class="moment-top">
+            <span class="moment-number">Momen 03</span>
+            <span class="moment-icon" aria-hidden="true">🎁</span>
+          </div>
+          <div class="moment-copy">
+            <h3>Officially 23th</h3>
+            <p>Siap level up dan jalanin babak baru yang lebih seru.</p>
+          </div>
+          <img class="moment-photo" src="ummaya 2.jpg" alt="Kolase dua foto Kalista mengenakan kerudung dan kacamata" loading="lazy" />
+        </article>
+      </div>
+    </section>
+
+    <section class="wish" id="harapan" aria-labelledby="wish-title">
+      <div class="wish-copy">
+        <div class="section-kicker">Untuk tahun yang baru</div>
+        <h2 id="wish-title">Semoga semua hal baik menemukan jalannya kepadamu.</h2>
+        <p>Selamat ulang tahun! Semoga tahun ini dipenuhi tawa yang tulus, mimpi yang tumbuh, dan momen yang ingin dikenang selamanya.</p>
+      </div>
+      <a class="wish-mark" href="pesan.html" aria-label="Please open: buka pesan ulang tahun untuk Ummaya">
+        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <rect x="5.5" y="10" width="37" height="28" rx="2" />
+          <path d="m7 13 17 13 17-13M7 36l12-11m22 11L29 25" />
+        </svg>
+        <span>Please open</span>
+      </a>
+    </section>
+
+    <footer class="footer-line">
+      <span>Dibuat dengan penuh cinta untuk hari spesialmu</span>
+      <a href="#top">Kembali ke atas ↑</a>
+    </footer>
+  </main>
+  <div class="birthday-clown birthday-clown--left" aria-hidden="true">
+    <span class="clown-face">🤡</span>
+    <span class="clown-horn">🎺</span>
+    <span class="clown-confetti">
+      <i class="confetti-piece"></i><i class="confetti-piece"></i><i class="confetti-piece"></i><i class="confetti-piece"></i><i class="confetti-piece"></i>
+    </span>
+  </div>
+  <div class="birthday-clown birthday-clown--right" aria-hidden="true">
+    <span class="clown-face">🤡</span>
+    <span class="clown-horn">🎺</span>
+    <span class="clown-confetti">
+      <i class="confetti-piece"></i><i class="confetti-piece"></i><i class="confetti-piece"></i><i class="confetti-piece"></i><i class="confetti-piece"></i>
+    </span>
+  </div>
+  <script>
+    (() => {
+      const cards = [...document.querySelectorAll(".moment--photo")];
+      const clowns = [...document.querySelectorAll(".birthday-clown")];
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      let framePending = false;
+      let clownTimer;
+
+      const showClowns = () => {
+        if (reduceMotion.matches) return;
+        clowns.forEach((clown) => {
+          clown.classList.remove("is-active");
+          window.requestAnimationFrame(() => clown.classList.add("is-active"));
+        });
+      };
+
+      const setClownTimer = () => {
+        window.clearInterval(clownTimer);
+        clowns.forEach((clown) => clown.classList.remove("is-active"));
+        if (!reduceMotion.matches) clownTimer = window.setInterval(showClowns, 2000);
+      };
+
+      const updateParallax = () => {
+        framePending = false;
+        if (reduceMotion.matches) return;
+
+        cards.forEach((card) => {
+          const bounds = card.getBoundingClientRect();
+          if (bounds.bottom < 0 || bounds.top > window.innerHeight) return;
+          const progress = (window.innerHeight - bounds.top) / (window.innerHeight + bounds.height);
+          const offset = (progress - 0.5) * 220;
+          card.style.setProperty("--parallax-y", `${offset}px`);
+        });
+      };
+
+      const requestParallaxUpdate = () => {
+        if (framePending || reduceMotion.matches) return;
+        framePending = true;
+        window.requestAnimationFrame(updateParallax);
+      };
+
+      window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
+      window.addEventListener("resize", requestParallaxUpdate);
+      reduceMotion.addEventListener("change", requestParallaxUpdate);
+      reduceMotion.addEventListener("change", setClownTimer);
+      setClownTimer();
+      requestParallaxUpdate();
+    })();
+  </script>
+</body>
+</html>
